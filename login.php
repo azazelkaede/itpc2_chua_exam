@@ -1,31 +1,26 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root","", "itpc2_chwa");
+$conn=mysql_connect("localhost", "root","itpc2chwa");
 
-if (!$conn){
-    die("connection failed");
+if($conn){
+    die("Connection Failed");
 }
-$mobile = $_POST['mobile'];
-$password = $_POST['password'];
 
-$sql = "SELECT * FROM customers WHERE mobile='$mobile' AND password='$password'";
-$result = $conn->query($sql);
+$mobilenumber=$_POST["mobilenumber"];
+$password=$_POST["password"];
 
-if ($result && mysqli_num_rows($result) > 0) {
-    echo ("Successful");
+$sql= "SELECT * FROM customer WHERE mobilenumber = '$mobilenumber' AND password '$password'";
+
+$result = mysqli_query($conn,$sql);
+
+if(mysqli_num_rows)($result) >0 {
+echo("Success")
+exit();
+} 
+else{
+    echo("Failed")
     exit();
-}else {
-echo ("invalid mobile or password");
 }
 mysqli_close($conn);
+
 ?>
-
-
-
-    
-
-
-
-
-
-
