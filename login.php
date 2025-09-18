@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "tyangge");
+$conn = mysqli_connect("localhost", "root","", "itpc2_chwa");
 
 if (!$conn){
     die("connection failed");
@@ -12,10 +12,10 @@ $sql = "SELECT * FROM customers WHERE mobile='$mobile' AND password='$password'"
 $result = $conn->query($sql);
 
 if ($result && mysqli_num_rows($result) > 0) {
-    echo "login successful WELCOME!";
+    echo ("Successful");
     exit();
 }else {
-echo "invalid mobile or password";
+echo ("invalid mobile or password");
 }
 mysqli_close($conn);
 ?>
@@ -23,6 +23,7 @@ mysqli_close($conn);
 
 
     
+
 
 
 
